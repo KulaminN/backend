@@ -20,7 +20,7 @@
 <script>
     async function send() {
         const text = document.getElementById("text").value;
-        const r = await fetch("http://localhost:8081/submit", {
+        const r = await fetch("/api/submit", {
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({text: text})
@@ -30,7 +30,7 @@
     }
 
     async function load() {
-        const r = await fetch("http://localhost:8081/read");
+        const r = await fetch("/api/read");
         const data = await r.json();
         document.getElementById("out").value = data.content;
     }
